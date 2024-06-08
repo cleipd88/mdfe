@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prompt Example</title>
+    <script>
+        window.onload = function() {
+            var params = new URLSearchParams(window.location.search);
+            if (params.has('prompt')) {
+                var promptMessage = params.get('prompt');
+                var userInput = prompt(promptMessage);
+                if (userInput) {
+                    var newUrl = `https://dfe-portal.svrs.rs.gov.br/mdfe/QRCode?chMDFe=${userInput}&tpAmb=1`;
+                    window.location.href = newUrl;
+                } else {
+                    alert('Nenhum valor foi inserido.');
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Prompt Example</h1>
+    <p>Abra esta página com um parâmetro de URL para ver o prompt.</p>
+</body>
+</html>
